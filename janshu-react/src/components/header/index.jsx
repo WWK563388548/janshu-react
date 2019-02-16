@@ -25,12 +25,16 @@ class Header extends Component {
                     <NavItem
                         className="right"
                     >
-                        Aa
+                        <i className="iconfont">&#xe636;</i>
                     </NavItem>
                     <NavSearchField />
+                    <i className="iconfont">&#xe653;</i>
                 </Nav>
                 <AdditionalField>
-                <Button className="writting">写文章</Button>
+                    <Button className="writting">
+                        <i className="iconfont">&#xe624;</i>
+                        写文章
+                    </Button>
                     <Button className="reg">注册</Button>
                 </AdditionalField>
             </HeaderWrapper>
