@@ -61,6 +61,22 @@ export const NavSearchField = styled.input.attrs({
     &::placeholder{
         color: #999;
     }
+    &.focused {
+        width: 240px;
+    }
+    &.slide-enter {
+        width: 160px;
+        transition: all .2s ease-out;
+    }
+    &.slide-enter-active {
+        width: 240px;
+    }
+    &.slide-exit {
+        transition: all .2s ease-out;
+    }
+    &.slide-exit-active {
+        width: 160px;
+    }
 `;
 
 export const SearchWrapper = styled.div`
@@ -74,6 +90,10 @@ export const SearchWrapper = styled.div`
         line-height: 30px;
         border-radius: 15px;
         text-align: center;
+        &.focused {
+            background: #777;
+            color: #fff;
+        }
     }
 `;
 
