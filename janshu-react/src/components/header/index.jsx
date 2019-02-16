@@ -1,31 +1,9 @@
 import React, {Component} from 'react';
 import {CSSTransition} from 'react-transition-group';
+import { connect } from 'react-redux';
 import {HeaderWrapper, Logo, Nav, NavItem, NavSearchField, SearchWrapper, AdditionalField, Button} from './header_style.js';
 
 class Header extends Component {
-
-    constructor(props){
-        super(props);
-
-        this.handleInputFocus = this.handleInputFocus.bind(this);
-        this.handleInputBlur = this.handleInputBlur.bind(this);
-
-        this.state = {
-            focused: false,
-        };
-    }
-
-    handleInputFocus() {
-        this.setState({
-            focused: true,
-        });
-    }
-
-    handleInputBlur() {
-        this.setState({
-            focused: false,
-        });
-    }
 
     render() {
         return (
@@ -54,18 +32,18 @@ class Header extends Component {
                     </NavItem>
                     <SearchWrapper>
                         <CSSTransition
-                            in={this.state.focused}
+                            in={this.props.focused}
                             timeout={200}
                             classNames='slide'
                         >
                             <NavSearchField 
-                                className={this.state.focused ? 'focused' : ''}
-                                onFocus={this.handleInputFocus}
-                                onBlur={this.handleInputBlur}
+                                className={this.props.focused ? 'focused' : ''}
+                                onFocus={this.props.handleInputFocus}
+                                onBlur={this.props.handleInputBlur}
                             />
                         </CSSTransition>
                         <i 
-                            className={this.state.focused ? 'focused iconfont' : 'iconfont'}
+                            className={this.props.focused ? 'focused iconfont' : 'iconfont'}
                         >
                             &#xe653;
                         </i>
@@ -88,6 +66,32 @@ class Header extends Component {
             </HeaderWrapper>
         );
     }
+
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+        return {
+            focused: state.focused,
+        }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleInputFocus() {
+            const action = {
+                type: 'search_field_focus',
+            };
+            dispatch(action);
+        },
+
+        handleInputBlur() {
+            const action = {
+                type: 'search_field_blur',
+            };
+            dispatch(action);
+        }
+
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
