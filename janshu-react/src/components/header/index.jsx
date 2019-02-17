@@ -21,22 +21,31 @@ import {
 class Header extends Component {
 
     getListArea(){
-        if(this.props.focused){
+        const newList = this.props.recommandList.toJS();
+        // console.log(newList);
+        const pagaList = [];
+        if(newList.length){
+            for(let i = (this.props.page - 1) * 10; i < this.props.page * 10; i++){
+                pagaList.push(
+                    newList[i] ? <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem> : null
+                );
+                
+            }
+        }
+
+        if(this.props.focused || this.props.mouseIn){
             if(this.props.recommandList)
                 return (
-                    <SearchInfo>
+                    <SearchInfo 
+                        onMouseEnter={this.props.handleMouseEnter}
+                        onMouseLeave={this.props.handleMouseLeave}
+                    >
                         <SearchInfoTitle>
                             热门搜索
-                            <SearchInfoSwitch>换一批</SearchInfoSwitch>
+                            <SearchInfoSwitch onClick={() => this.props.handleChangePage(this.props.page, this.props.totalPage)}>换一批</SearchInfoSwitch>
                         </SearchInfoTitle>
                         <SearchInfoList>
-                            {
-                                this.props.recommandList.map((item) => {
-                                    return (
-                                        <SearchInfoItem key={item}>{item}</SearchInfoItem>
-                                    )
-                                })
-                            }
+                            {pagaList}
                         </SearchInfoList>
                     </SearchInfo>
                 );
@@ -114,8 +123,11 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
         const header = {
-            focused: state.header.focused,
-            recommandList: state.header.recommandList,
+            focused: state.get('header').get('focused'),
+            recommandList: state.getIn(['header', 'recommandList']),
+            page: state.getIn(['header', 'page']),
+            totalPage: state.getIn(['header', 'totalPage']),
+            mouseIn: state.getIn(['header', 'mouseIn']),
         }
         // console.log(state, header);
         return header;
@@ -132,6 +144,19 @@ const mapDispatchToProps = (dispatch) => {
         handleInputBlur() {
             const action = actionCreators.searchFieldBlur();
             dispatch(action);
+        },
+        handleMouseEnter() {
+            dispatch(actionCreators.mouseEnter());
+        },
+        handleMouseLeave() {
+            dispatch(actionCreators.mouseLeave());
+        },
+        handleChangePage(page, totalPage) {
+            if(page < totalPage){
+                dispatch(actionCreators.changePageList(page + 1));
+            } else {
+                dispatch(actionCreators.changePageList(1));
+            }
         }
 
     }
