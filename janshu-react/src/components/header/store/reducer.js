@@ -6,24 +6,21 @@ const defaultState = {
 };
 
 export default (state = defaultState, action) => {
-    if(action.type === actionTypes.SEARCH_FIELD_FOCUS){
-        return {
-            focused: true,
-        }
+    switch(action.type){
+        case actionTypes.SEARCH_FIELD_FOCUS:
+            return {
+                focused: true,
+            };
+        case actionTypes.SEARCH_FIELD_BLUR:
+            return {
+                focused: false,
+            };
+        case actionTypes.GET_SEARCH_RECOMMAND_DATA:
+            return {
+                ...state,
+                recommandList: action.data,
+            }
+        default:
+            return state;
     }
-
-    if(action.type === actionTypes.SEARCH_FIELD_BLUR){
-        return {
-            focused: false,
-        }
-    }
-
-    if(action.type === actionTypes.GET_SEARCH_RECOMMAND_DATA){
-        return {
-            ...state,
-            recommandList: action.data,
-        }
-    }
-    
-    return state;
 };
