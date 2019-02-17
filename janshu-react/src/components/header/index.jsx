@@ -2,7 +2,45 @@ import React, {Component} from 'react';
 import {CSSTransition} from 'react-transition-group';
 import { connect } from 'react-redux';
 import * as actionCreators from './store/actionCreators';
-import {HeaderWrapper, Logo, Nav, NavItem, NavSearchField, SearchWrapper, AdditionalField, Button} from './header_style.js';
+import {
+    HeaderWrapper,
+    Logo, 
+    Nav, 
+    NavItem, 
+    NavSearchField, 
+    SearchWrapper, 
+    AdditionalField, 
+    Button, 
+    SearchInfo, 
+    SearchInfoTitle,
+    SearchInfoSwitch,
+    SearchInfoList,
+    SearchInfoItem,
+} from './header_style.js';
+
+const getListArea = (show) => {
+    if(show){
+        return (
+            <SearchInfo>
+                <SearchInfoTitle>
+                    热门搜索
+                    <SearchInfoSwitch>换一批</SearchInfoSwitch>
+                </SearchInfoTitle>
+                <SearchInfoList>
+                    <SearchInfoItem>React</SearchInfoItem>
+                    <SearchInfoItem>Vue</SearchInfoItem>
+                    <SearchInfoItem>Flutter</SearchInfoItem>
+                    <SearchInfoItem>教育</SearchInfoItem>
+                    <SearchInfoItem>阅读</SearchInfoItem>
+                    <SearchInfoItem>求职</SearchInfoItem>
+                    <SearchInfoItem>生活</SearchInfoItem>
+                </SearchInfoList>
+            </SearchInfo>
+        );
+    } else {
+        return null;
+    }
+}
 
 class Header extends Component {
 
@@ -48,6 +86,7 @@ class Header extends Component {
                         >
                             &#xe653;
                         </i>
+                        {getListArea(this.props.focused)}
                     </SearchWrapper>
                 </Nav>
                 <AdditionalField>
