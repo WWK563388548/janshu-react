@@ -2,6 +2,7 @@ import * as actionTypes from './constants';
 
 const defaultState = {
     focused: false,
+    recommandList: [],
 };
 
 export default (state = defaultState, action) => {
@@ -15,6 +16,10 @@ export default (state = defaultState, action) => {
         return {
             focused: false,
         }
+    }
+
+    if(action.type === actionTypes.GET_SEARCH_RECOMMAND_DATA){
+        return Object.assign(state, {recommandList: action.data});
     }
     
     return state;
