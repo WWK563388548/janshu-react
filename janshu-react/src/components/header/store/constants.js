@@ -1,0 +1,2 @@
+export const SEARCH_FIELD_FOCUS = 'header/SEARCH_FIELD_FOCUS';
+export const SEARCH_FIELD_BLUR = 'header/SEARCH_FIELD_BLUR';

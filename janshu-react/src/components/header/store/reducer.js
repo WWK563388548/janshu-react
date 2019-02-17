@@ -1,15 +1,17 @@
+import * as actionTypes from './constants';
+
 const defaultState = {
     focused: false,
 };
 
 export default (state = defaultState, action) => {
-    if(action.type === 'search_field_focus'){
+    if(action.type === actionTypes.SEARCH_FIELD_FOCUS){
         return {
             focused: true,
         }
     }
 
-    if(action.type === 'search_field_blur'){
+    if(action.type === actionTypes.SEARCH_FIELD_BLUR){
         return {
             focused: false,
         }

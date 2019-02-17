@@ -1,7 +1,9 @@
+import * as actionTypes from './constants';
+
 export const searchFieldFocus = () => ({
-    type: 'search_field_focus'
+    type: actionTypes.SEARCH_FIELD_FOCUS
 });
 
 export const searchFieldBlur = () => ({
-    type: 'search_field_blur'
+    type: actionTypes.SEARCH_FIELD_BLUR
 });
