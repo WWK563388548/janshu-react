@@ -19,7 +19,10 @@ export default (state = defaultState, action) => {
     }
 
     if(action.type === actionTypes.GET_SEARCH_RECOMMAND_DATA){
-        return Object.assign(state, {recommandList: action.data});
+        return {
+            ...state,
+            recommandList: action.data,
+        }
     }
     
     return state;

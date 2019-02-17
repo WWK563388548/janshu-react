@@ -20,25 +20,26 @@ import {
 
 class Header extends Component {
 
-    getListArea(show){
-        if(show){
-            return (
-                <SearchInfo>
-                    <SearchInfoTitle>
-                        热门搜索
-                        <SearchInfoSwitch>换一批</SearchInfoSwitch>
-                    </SearchInfoTitle>
-                    <SearchInfoList>
-                        <SearchInfoItem>React</SearchInfoItem>
-                        <SearchInfoItem>Vue</SearchInfoItem>
-                        <SearchInfoItem>Flutter</SearchInfoItem>
-                        <SearchInfoItem>教育</SearchInfoItem>
-                        <SearchInfoItem>阅读</SearchInfoItem>
-                        <SearchInfoItem>求职</SearchInfoItem>
-                        <SearchInfoItem>生活</SearchInfoItem>
-                    </SearchInfoList>
-                </SearchInfo>
-            );
+    getListArea(){
+        if(this.props.focused){
+            if(this.props.recommandList)
+                return (
+                    <SearchInfo>
+                        <SearchInfoTitle>
+                            热门搜索
+                            <SearchInfoSwitch>换一批</SearchInfoSwitch>
+                        </SearchInfoTitle>
+                        <SearchInfoList>
+                            {
+                                this.props.recommandList.map((item) => {
+                                    return (
+                                        <SearchInfoItem key={item}>{item}</SearchInfoItem>
+                                    )
+                                })
+                            }
+                        </SearchInfoList>
+                    </SearchInfo>
+                );
         } else {
             return null;
         }
@@ -46,6 +47,7 @@ class Header extends Component {
     
 
     render() {
+        // console.log(this.props);
         return (
             <HeaderWrapper>
                 <Logo href="/" />
@@ -87,7 +89,7 @@ class Header extends Component {
                         >
                             &#xe653;
                         </i>
-                        {this.getListArea(this.props.focused)}
+                        {this.getListArea()}
                     </SearchWrapper>
                 </Nav>
                 <AdditionalField>
@@ -111,9 +113,12 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => {
-        return {
+        const header = {
             focused: state.header.focused,
+            recommandList: state.header.recommandList,
         }
+        // console.log(state, header);
+        return header;
 };
 
 const mapDispatchToProps = (dispatch) => {
