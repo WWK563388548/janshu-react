@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {CSSTransition} from 'react-transition-group';
 import { connect } from 'react-redux';
+import * as actionCreators from './store/actionCreators';
 import {HeaderWrapper, Logo, Nav, NavItem, NavSearchField, SearchWrapper, AdditionalField, Button} from './header_style.js';
 
 class Header extends Component {
@@ -78,16 +79,12 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleInputFocus() {
-            const action = {
-                type: 'search_field_focus',
-            };
+            const action = actionCreators.searchFieldFocus();
             dispatch(action);
         },
 
         handleInputBlur() {
-            const action = {
-                type: 'search_field_blur',
-            };
+            const action = actionCreators.searchFieldBlur();
             dispatch(action);
         }
 
