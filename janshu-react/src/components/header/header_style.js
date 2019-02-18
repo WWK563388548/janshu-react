@@ -29,6 +29,7 @@ export const Nav = styled.div`
 export const NavItem = styled.div`
     line-height: 56px;
     padding: 0 15px;
+    cursor: pointer;
     font-size: 17px;
     color: #333;
     &.left{
@@ -40,6 +41,11 @@ export const NavItem = styled.div`
     }
     &.active{
         color: #ea6f5a;
+    }
+    &.download{
+        &:hover{
+            background: #f5f5f5;
+        }
     }
 `;
 
@@ -118,6 +124,7 @@ export const SearchInfoTitle = styled.div`
 export const SearchInfoSwitch = styled.span`
     float: right;
     font-size: 13px;
+    cursor: pointer;
     .spin {
         display: block;
         float: left;
@@ -161,6 +168,7 @@ export const Button = styled.div`
     border-radius: 19px;
     border: 1px solid #ec6149;
     font-size: 14px;
+    cursor: pointer;
     &.reg{
         color: #ec6149;
     }

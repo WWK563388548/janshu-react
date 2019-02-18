@@ -78,7 +78,7 @@ class Header extends Component {
                         首页
                     </NavItem>
                     <NavItem
-                        className="left"
+                        className="left download"
                     >
                         下载APP
                     </NavItem>
