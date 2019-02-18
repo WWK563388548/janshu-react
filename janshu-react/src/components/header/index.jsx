@@ -42,7 +42,14 @@ class Header extends Component {
                     >
                         <SearchInfoTitle>
                             热门搜索
-                            <SearchInfoSwitch onClick={() => this.props.handleChangePage(this.props.page, this.props.totalPage)}>换一批</SearchInfoSwitch>
+                            <SearchInfoSwitch onClick={() => this.props.handleChangePage(this.props.page, this.props.totalPage)}>
+                            <i
+                                className="iconfont spin"
+                            >
+                                &#xe851;
+                            </i>
+                                换一批
+                            </SearchInfoSwitch>
                         </SearchInfoTitle>
                         <SearchInfoList>
                             {pagaList}
@@ -94,7 +101,7 @@ class Header extends Component {
                             />
                         </CSSTransition>
                         <i 
-                            className={this.props.focused ? 'focused iconfont' : 'iconfont'}
+                            className={this.props.focused ? 'focused iconfont zoom' : 'iconfont zoom'}
                         >
                             &#xe653;
                         </i>

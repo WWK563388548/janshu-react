@@ -82,7 +82,7 @@ export const NavSearchField = styled.input.attrs({
 export const SearchWrapper = styled.div`
     float: left;
     position: relative;
-    .iconfont {
+    .zoom {
         position: absolute;
         right: 5px;
         bottom: 4px;
@@ -95,6 +95,7 @@ export const SearchWrapper = styled.div`
             color: #fff;
         }
     }
+
 `;
 
 export const SearchInfo = styled.div`
@@ -117,6 +118,10 @@ export const SearchInfoTitle = styled.div`
 export const SearchInfoSwitch = styled.span`
     float: right;
     font-size: 13px;
+    .spin {
+        font-size: 12px;
+        margin-right: 2px;
+    }
 `;
 
 export const SearchInfoList = styled.div`
