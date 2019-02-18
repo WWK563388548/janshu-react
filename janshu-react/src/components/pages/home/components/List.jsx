@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { getMoreArticles } from '../store/actionCreators';
 import {
     ListItem,
     ListInfo,
+    LoadMore,
 } from '../home_style';
 
 class List extends Component {
@@ -10,9 +12,9 @@ class List extends Component {
         return (
             <div>
                 {
-                    this.props.articleList.map((item) => {
+                    this.props.articleList.map((item, index) => {
                         return (
-                            <ListItem key={item.get("id")}>
+                            <ListItem key={index}>
                                 <img
                                     className="pic"
                                     src={item.get("image")}
@@ -33,6 +35,7 @@ class List extends Component {
                         )
                     })
                 }
+                <LoadMore onClick={() => this.props.getMoreArticles(this.props.articlePage)}>加载更多</LoadMore>
             </div>
         );
     }
@@ -40,6 +43,13 @@ class List extends Component {
 
 const mapStateToProps = (state) => ({
     articleList: state.getIn(["home", "articleList"]),
+    articlePage: state.getIn(["home", "articlePage"]),
 });
 
-export default connect(mapStateToProps, null)(List);
+const mapDispatchToProps = (dispatch) => ({
+    getMoreArticles(page) {
+        dispatch(getMoreArticles(page));
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);
