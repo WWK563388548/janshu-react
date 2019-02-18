@@ -112,3 +112,29 @@ export const WriterWrapper = styled.div`
     line-height: 300px;
     text-align: center;
 `;
+
+export const WriteerItem = styled.div`
+    height: 40px;
+    line-height: 18px;
+    margin-Top: 10px;
+    margin-bottom: 10px;
+    padding-right: 10px;
+    .topic-pic{
+        border-radius: 50%;
+        display: block;
+        float: left;
+        width: 40px;
+        height: 40px;
+        margin-left: 10px;
+        margin-Top: -5px;
+    }
+    .name {
+        color: #000;
+        font-size: 14px;
+    }
+    .desc {
+        color: #969696;
+        font-size: 10px;
+    }
+    border-bottom: 1px solid #dcdcdc;
+`;
