@@ -100,7 +100,7 @@ class Header extends Component {
                         >
                             <NavSearchField 
                                 className={this.props.focused ? 'focused' : ''}
-                                onFocus={this.props.handleInputFocus}
+                                onFocus={() => this.props.handleInputFocus(this.props.recommandList)}
                                 onBlur={this.props.handleInputBlur}
                             />
                         </CSSTransition>
@@ -146,8 +146,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleInputFocus() {
-            dispatch(actionCreators.getList());
+        handleInputFocus(recommandList) {
+            if(recommandList.size === 0){
+                dispatch(actionCreators.getList());
+            }
             const action = actionCreators.searchFieldFocus();
             dispatch(action);
         },
