@@ -150,3 +150,21 @@ export const LoadMore = styled.div`
     text-align:center;
     border-radius: 20px;
 `;
+
+export const BackTop = styled.div`
+    top: 500px;
+    position: fixed;
+    width: 60px;
+    right: 100px;
+    cursor: pointer;
+    height: 60px;
+    line-height: 60px;
+    background: #fff;
+    color: #000;
+    font-size: 10px;
+    text-align:center;
+    border: 1px solid #dcdcdc;
+    &:hover{
+        background: #969696;
+    }
+`;
