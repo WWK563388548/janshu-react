@@ -138,3 +138,15 @@ export const WriteerItem = styled.div`
     }
     border-bottom: 1px solid #dcdcdc;
 `;
+
+export const LoadMore = styled.div`
+    width: 100%;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    margin: 30px 0;
+    background: #a5a5a5;
+    color: #fff;
+    text-align:center;
+    border-radius: 20px;
+`;
