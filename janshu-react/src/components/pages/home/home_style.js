@@ -18,7 +18,7 @@ export const HomeLeft = styled.div`
 `;
 
 export const HomeRight = styled.div`
-    width: 240px;
+    width: 280px;
     float: right;
 `;
 
