@@ -82,23 +82,38 @@
         "writerList": [
             {
                 "id": 1,
-                "avatar": "http://cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png"
+                "avatar": "http://upload.jianshu.io/users/upload_avatars/3292545/78f2855a-80fd-419a-9fb2-1aeed39690f0.png",
+                "name": "北美之北",
+                "likes": 13429,
+                "total_words": 407226
             },
             {
                 "id": 2,
-                "avatar": "http://cdn2.jianshu.io/assets/web/banner-s-4-b70da70d679593510ac93a172dfbaeaa.png"
+                "avatar": "http://upload.jianshu.io/users/upload_avatars/3627484/eb973bb9-37ba-4d07-acec-850c0a66d1bb.png",
+                "name": "简书大学堂",
+                "likes": 63229,
+                "total_words": 859236
             },
             {
                 "id": 3,
-                "avatar": "http://cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png"
+                "avatar": "http://upload.jianshu.io/users/upload_avatars/2558050/7761b285-2805-4534-9870-ba7dcc7538ec.jpg",
+                "name": "阿栈",
+                "likes": 11339,
+                "total_words": 455691
             },
             {
                 "id": 4,
-                "avatar": "http://cdn2.jianshu.io/assets/web/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png"
+                "avatar": "http://upload.jianshu.io/users/upload_avatars/3136195/484e32c3504a.jpg",
+                "name": "梅拾璎",
+                "likes": 23214,
+                "total_words": 262646
             },
             {
                 "id": 5,
-                "avatar": "http://cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png"
+                "avatar": "http://upload.jianshu.io/users/upload_avatars/2564926/88bfdbeeb083.jpg",
+                "name": "王老师八卦美术史",
+                "likes": 9988,
+                "total_words": 146053
             }
         ]
     }
