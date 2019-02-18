@@ -90,3 +90,16 @@ export const ListInfo = styled.div`
         color: #999;
     }
 `;
+
+export const RecommandWrapper = styled.div`
+    margin: 30px 0;
+    width: 280px;
+`;
+
+export const RecommandItem = styled.div`
+    cursor: pointer;
+    width: 280px;
+    height: 50px;
+    background: url(${(props) => props.imageUrl});
+    background-size: contain;
+`;
