@@ -42,8 +42,12 @@ class Header extends Component {
                     >
                         <SearchInfoTitle>
                             热门搜索
-                            <SearchInfoSwitch onClick={() => this.props.handleChangePage(this.props.page, this.props.totalPage)}>
+                            <SearchInfoSwitch onClick={() => this.props.handleChangePage(this.props.page, this.props.totalPage, this.spinIcon)}>
+                            {
+                                // ref可以让我们获取元素的真实DOM节点
+                            }
                             <i
+                                ref={(icon) => {this.spinIcon = icon}}
                                 className="iconfont spin"
                             >
                                 &#xe851;
@@ -158,7 +162,16 @@ const mapDispatchToProps = (dispatch) => {
         handleMouseLeave() {
             dispatch(actionCreators.mouseLeave());
         },
-        handleChangePage(page, totalPage) {
+        handleChangePage(page, totalPage, spinIcon) {
+            // 若spinIcon.style.transform的值不是数字，那么替换为空
+            let originAngle = spinIcon.style.transform.replace(/[^0-9]/ig, '');
+            if(originAngle){
+                originAngle = parseInt(originAngle, 10);
+            } else {
+                originAngle = 0;
+            }
+            spinIcon.style.transform = 'rotate('+ (originAngle + 360) +'deg)';
+
             if(page < totalPage){
                 dispatch(actionCreators.changePageList(page + 1));
             } else {
