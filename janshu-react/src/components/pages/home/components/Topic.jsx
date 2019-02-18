@@ -25,7 +25,7 @@ class Topic extends Component {
                     }))
                 }
                
-               <TopicItemMore>           
+               <TopicItemMore href="#">           
                     更多热门专题 >
                </TopicItemMore> 
             </TopicWrapper>

@@ -31,6 +31,7 @@ export const TopicWrapper = styled.div`
 export const TopicItem = styled.div`
     float: left;
     height: 32px;
+    cursor: pointer;
     line-height: 32px;
     margin-left: 18px;
     margin-bottom: 18px;
@@ -49,7 +50,7 @@ export const TopicItem = styled.div`
     }
 `;
 
-export const TopicItemMore = styled.div`
+export const TopicItemMore = styled.a`
     float: left;
     height: 32px;
     line-height: 32px;
