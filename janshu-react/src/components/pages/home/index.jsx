@@ -4,7 +4,7 @@ import Recommand from './components/Recommand';
 import Topic from './components/Topic';
 import Writer from './components/Writer';
 import { connect } from 'react-redux';
-import axios from 'axios';
+import { getHomeData } from './store/actionCreators.js'
 import {
     HomeWrapper,
     HomeLeft,
@@ -14,20 +14,8 @@ import {
 class Home extends Component {
 
     componentDidMount() {
-        axios.get('/api/home/home.json').then((res) => {
-            const data = res.data;
-            console.log("api data", data)
-            const action = {
-                type: 'set_home_data',
-                data,
-            }
-            this.props.setHomeData(action);
-            // dispatch(action);
-        }).catch(((err) => {
-            console.log("error", err);
-        }));
+        this.props.setHomeData();
     }
-
     render() {
         return (
             <HomeWrapper>
@@ -50,8 +38,9 @@ class Home extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    setHomeData(action){
-        dispatch(action);
+    setHomeData(){
+       const action = getHomeData();
+       dispatch(action);
     }
 });
 
