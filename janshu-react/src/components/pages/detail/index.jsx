@@ -10,7 +10,7 @@ import { getDetailData } from './store/actionCreators';
 class Detail extends Component {
 
     componentDidMount() {
-        this.props.getDetailData();
+        this.props.getDetailData(this.props.match.params.id);
     }
     render() {
         return (
@@ -28,7 +28,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    getDetailData(){
+    getDetailData(id){
         dispatch(getDetailData());
     }
 });
