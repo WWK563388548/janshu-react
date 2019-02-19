@@ -6,6 +6,7 @@ import {
     ListInfo,
     LoadMore,
 } from '../home_style';
+import { Link } from 'react-router-dom';
 
 class List extends Component {
     render() {
@@ -14,24 +15,26 @@ class List extends Component {
                 {
                     this.props.articleList.map((item, index) => {
                         return (
-                            <ListItem key={index}>
-                                <img
-                                    className="pic"
-                                    src={item.get("image")}
-                                    alt={item.get("title")}
-                                />
-                                <ListInfo>
-                                    <a
-                                        href="#"
-                                        className="title"
-                                    >
-                                        {item.get("title")}
-                                    </a>
-                                    <p className="desc">
-                                        {item.get("desc")}    
-                                    </p>
-                                </ListInfo>
-                            </ListItem>
+                            <Link key={index} to='/detail'>
+                                <ListItem>
+                                    <img
+                                        className="pic"
+                                        src={item.get("image")}
+                                        alt={item.get("title")}
+                                    />
+                                    <ListInfo>
+                                        <a
+                                            href="#"
+                                            className="title"
+                                        >
+                                            {item.get("title")}
+                                        </a>
+                                        <p className="desc">
+                                            {item.get("desc")}    
+                                        </p>
+                                    </ListInfo>
+                                </ListItem>
+                            </Link>
                         )
                     })
                 }
