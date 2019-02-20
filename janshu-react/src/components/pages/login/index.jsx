@@ -12,11 +12,8 @@ class Login extends Component {
             return (
                 <LoginWrapper>
                     <LoginBox>
-                        {
-                            // styled-component时使用innerRef而不是普通的ref
-                        }
-                        <Input placeholder="账号" innerRef={(input) => {this.account = input}}/>
-                        <Input placeholder="密码" type="password" innerRef={(input) => {this.password = input}}/>
+                        <Input placeholder="账号" ref={(input) => {this.account = input}}/>
+                        <Input placeholder="密码" type="password" ref={(input) => {this.password = input}}/>
                         <Button onClick={() => this.props.handleLogin(this.account, this.password)}>登陆</Button>
                     </LoginBox>
                 </LoginWrapper>
@@ -33,8 +30,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    handleLogin(account, password) {
-        dispatch(handleLogin(account.value, password.value));
+    handleLogin(accountElem, passwordElem) {
+        console.log(accountElem, passwordElem);
+        console.log(accountElem.value, accountElem.value);
+        dispatch(handleLogin(accountElem.value, accountElem.value));
     }
 });
 
