@@ -85,11 +85,23 @@ class Header extends Component {
                     >
                         下载APP
                     </NavItem>
-                    <NavItem
-                        className="right"
-                    >
-                        登陆
-                    </NavItem>
+                    {
+                        this.props.login ? (
+                            <NavItem
+                                className="right"
+                            >
+                                退出
+                            </NavItem>
+                        ) : (
+                            <Link to="/login">
+                                <NavItem
+                                    className="right"
+                                >
+                                    登陆
+                                </NavItem>
+                            </Link>
+                        )
+                    }
                     <NavItem
                         className="right"
                     >
@@ -142,6 +154,7 @@ const mapStateToProps = (state) => {
             page: state.getIn(['header', 'page']),
             totalPage: state.getIn(['header', 'totalPage']),
             mouseIn: state.getIn(['header', 'mouseIn']),
+            login: state.getIn(['login', 'login']),
         }
         // console.log(state, header);
         return header;
