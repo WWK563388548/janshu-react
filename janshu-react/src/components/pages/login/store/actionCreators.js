@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {HANDLE_LOGIN} from './constants';
+import {HANDLE_LOGIN, HANDLE_LOGOUT} from './constants';
 
 export const handleLogin = (account, password) => {
     return (dispatch) => {
@@ -14,4 +14,9 @@ export const handleLogin = (account, password) => {
             console.log("error", err);
         }));
     };
-}
+};
+
+export const handleLogout = () => ({
+    type: HANDLE_LOGOUT,
+    value: false,
+});

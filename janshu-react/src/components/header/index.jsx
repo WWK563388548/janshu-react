@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {CSSTransition} from 'react-transition-group';
 import { connect } from 'react-redux';
 import * as actionCreators from './store/actionCreators';
+import { handleLogout } from '../pages/login/store/actionCreators';
 import { Link } from 'react-router-dom';
 import {
     HeaderWrapper,
@@ -89,6 +90,7 @@ class Header extends Component {
                         this.props.login ? (
                             <NavItem
                                 className="right"
+                                onClick={this.props.handleLogout}
                             >
                                 退出
                             </NavItem>
@@ -162,6 +164,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        handleLogout(){
+            dispatch(handleLogout());
+        },
         handleInputFocus(recommandList) {
             if(recommandList.size === 0){
                 dispatch(actionCreators.getList());
