@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from "./components/header";
 import store from './store';
 import Home from './components/pages/home';
-import Detail from './components/pages/detail';
+import Detail from './components/pages/detail/loadable';
 import Login from './components/pages/login';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
