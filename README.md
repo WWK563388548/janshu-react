@@ -1,7 +1,8 @@
 # janshu-react
 
 <a href="https://i.gyazo.com/cf654c280bac36cef61a3fadcc7c82ca.gif">check demo by gif</a> <br>
-<a href="https://adoring-kepler-cf083c.netlify.com/">check demo</a> <br>
+<a href="https://adoring-kepler-cf083c.netlify.com/">check demo</a> (Deployed in [netlify.com](https://www.netlify.com/))
+<br>
 (Using Fake data)
 ***
 How to run project:
